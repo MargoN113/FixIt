@@ -13,6 +13,18 @@
   width: 400px;
   height: 100%;
   background-color: $color-secondary;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.list-element {
+  display: flex;
+  width: calc(100% - 30px);
+  min-height: 40px;
+  //align-items: center;
+  padding: 10px 30px 10px;
+  color: $color-text;
+  font-family: Bahnschrift, sans-serif;
 }
 
 .map-frame {
