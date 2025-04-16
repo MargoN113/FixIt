@@ -1,0 +1,32 @@
+@import '../../../styles';
+
+
+.header {
+  display: flex;
+  align-items: center;
+  height: $header-height;
+  max-height: $header-height;
+  width: calc(100% - 60px);
+  padding: 0 30px;
+
+  background: $color-primary;
+  color: white;
+  font-family: Bahnschrift, serif;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.logo {
+  filter: brightness(999);
+}
+
+.company {
+  padding: 0 50px 0 2px;
+  font-weight: bold;
+  font-size: 16pt;
+}
