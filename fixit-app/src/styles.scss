@@ -2,11 +2,29 @@
 
 $header-height: 100px;
 $color-primary: #556F44;
-$color-secundary: #95BF74;
+$color-secondary: #95BF74;
 $color-extra1: #659B5E;
 $color-extra2: #95BF74;
 
 body, html {
   margin: 0;
   padding: 0;
+}
+
+.custom-tooltip {
+  background-color: $color-secondary !important;
+  color: white !important;
+  font-family: Bahnschrift, sans-serif;
+  font-size: 11pt;
+  border: 2px solid white !important;
+  border-radius: 12px !important;
+  //box-shadow: none !important;
+  padding: 0 8px !important;
+}
+.custom-tooltip::before {
+  opacity: 0 !important;
+}
+
+.custom-marker:hover {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));;
 }
