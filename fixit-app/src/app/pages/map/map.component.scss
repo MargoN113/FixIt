@@ -11,20 +11,48 @@
   display: flex;
   flex-direction: column;
   width: 400px;
-  height: 100%;
+  height: calc(100% - 20px);
   background-color: $color-secondary;
   overflow-y: scroll;
   overflow-x: hidden;
+  padding: 10px 0;
 }
 
 .list-element {
   display: flex;
-  width: calc(100% - 30px);
-  min-height: 40px;
+  flex-direction: column;
+  width: calc(100% - 32px);
+  //min-height: 40px;
   //align-items: center;
-  padding: 10px 30px 10px;
-  color: $color-text;
+  padding: 10px 14px 12px 18px;
+  color: $color-extra3;
   font-family: Bahnschrift, sans-serif;
+  opacity: 0.9;
+  cursor: pointer;
+
+  .list-element-name {
+    font-weight: bold;
+    font-size: 16pt;
+  }
+
+  .list-element-description {
+    font-size: 12pt;
+  }
+
+  .list-element-type {
+    font-size: 9pt;
+    text-align: end;
+    margin-top: 2px;
+  }
+}
+
+.list-element:hover, .list-element-hover {
+  backdrop-filter: contrast(0.8);
+}
+
+.list-element-focus {
+  background-color: $color-extra3;
+  color: white;
 }
 
 .map-frame {
