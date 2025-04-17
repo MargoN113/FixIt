@@ -41,8 +41,8 @@ export const repaircafes = [
   },
   {
     "name": "Reparatur Oase",
-    "lat": 48.3577,
-    "lng": 10.8994,
+    "lat": 48.30113302400731,
+    "lng": 10.966136662070237,
     "type": "Möbel",
     "description": "Dein Stuhl wackelt? Dein Tisch knarzt? Hier gibt’s Frieden für dein Mobiliar.",
     "id": "84498202-71c0-48af-88c5-d78691953bd9"

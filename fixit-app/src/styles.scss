@@ -1,11 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 $header-height: 100px;
-$color-primary: #556F44;
-$color-secondary: #95BF74;
-$color-extra1: #659B5E;
-$color-extra2: #95BF74;
-$color-extra3: #220901;
+$color-primary: #95BF74;
+$color-secondary: #220901;
+$color-extra1: #556F44;
+$color-extra2: #659B5E;
 
 body, html {
   margin: 0;
@@ -16,11 +15,11 @@ body, html {
   background-color: $color-secondary !important;
   color: white !important;
   font-family: Bahnschrift, sans-serif;
-  font-size: 11pt;
-  border: 2px solid white !important;
-  border-radius: 12px !important;
+  font-size: 9pt;
+  border: 2px solid $color-primary !important;
+  border-radius: 15px !important;
   //box-shadow: none !important;
-  padding: 0 8px !important;
+  padding: 1px 8px !important;
 }
 .custom-tooltip::before {
   opacity: 0 !important;

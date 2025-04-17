@@ -38,6 +38,12 @@ export class MapComponent implements AfterViewInit {
 
     //highlightet den map marker
     this.highlightMarker(cafe.marker);
+
+    if(document.getElementsByClassName("show-details").length === 0){
+      this.map.panBy([400, 0], {animate: false});
+    }
+    document.getElementById("map-frame")?.classList.add("map-frame-small");
+    document.getElementById("details")?.classList.add("show-details");
   }
 
   closeCafeDetails() {
@@ -45,11 +51,21 @@ export class MapComponent implements AfterViewInit {
     for(let oldFocusElement of oldFocusElements) {
       oldFocusElement.classList.remove("list-element-focus");
     }
+
+    document.getElementById("map-frame")?.classList.remove("map-frame-small");
+    document.getElementById("details")?.classList.remove("show-details");
+    this.map.panBy([-400, 0], {animate: false});
   }
   hoverStartCafe(cafe: any) {
     const cafeListElement = document.getElementById(cafe.id);
     cafeListElement?.classList.add("list-element-hover");
 
+    cafeListElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    this.highlightMarker(cafe.marker);
+  }
+
+  hoverStartCafeList(cafe: any) {
     this.highlightMarker(cafe.marker);
   }
 
@@ -71,8 +87,9 @@ export class MapComponent implements AfterViewInit {
       this.highlightMarker(cafe.marker);
       return;
     }
-
-    if(document.getElementsByClassName("list-element-focus")?.length > 0){
+    const focusElements = document.getElementsByClassName("list-element-focus");
+    if(focusElements.length > 0){
+      focusElements[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
       cafe.marker.setOpacity(0.2).setZIndexOffset(0).closeTooltip();
       return;
     }
