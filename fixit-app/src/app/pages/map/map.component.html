@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="list">
+    <div [id]="cafe.id" class="list-element" *ngFor="let cafe of cafes" (click)="openCafeDetails(cafe)" (mouseenter)="hoverStartCafeList(cafe)" (mouseleave)="hoverEndCafe(cafe)">
+      <div class="list-element-name">
+        {{cafe.name}}
+      </div>
+      <div class="list-element-description">
+        {{cafe.description}}
+      </div>
+      <div class="list-element-type">
+        {{cafe.type}}
+      </div>
+    </div>
+  </div>
+  <div id="details">
+
+  </div>
+  <div id="map-frame">
+    <div id="map"></div>
+  </div>
+</div>
