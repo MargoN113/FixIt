@@ -48,7 +48,7 @@ export class MapComponent implements AfterViewInit {
 
       //macht die karte 400px kleiner
       //document.getElementById("map-frame")?.classList.add("map-frame-small");
-      document.documentElement.style.setProperty(`$header-width`, "800px");
+      document.documentElement.style.setProperty(`--header-width`, "800px");
       //fügt das detail fenster hinzu
       document.getElementById("details")?.classList.add("show-details");
     }
@@ -64,7 +64,7 @@ export class MapComponent implements AfterViewInit {
 
     //macht map wieder groß
     //document.getElementById("map-frame")?.classList.remove("map-frame-small");
-    document.documentElement.style.setProperty(`$header-width`, "400px");
+    document.documentElement.style.setProperty(`--header-width`, "400px");
     //entfernt das detail fenster
     document.getElementById("details")?.classList.remove("show-details");
     //macht den map pan rückgängig um 400px (breite des detail fensters)
@@ -147,7 +147,7 @@ export class MapComponent implements AfterViewInit {
     });
 
     L.control.zoom({
-      position: 'bottomleft'
+      position: 'bottomright'
     }).addTo(this.map);
 
     //map click listener

@@ -1,4 +1,4 @@
-<div id="header" (mouseleave)="headerHoverEnd()">
+<div id="header"  (mouseenter)="headerHoverStart()" (mouseleave)="headerHoverEnd()">
   <div class="identity">
     <div class="logo">
       <img src="assets/images/fixit-logo1.png" height="60" width="60" alt=""/>
@@ -7,10 +7,12 @@
       FixIt Augsburg
     </div>
   </div>
-  <div class="extend-button" (mouseenter)="headerHoverStart()">
+  <div class="extend-button">
     >
   </div>
-  <div class="title-container" *ngFor="let page of pages">
-    {{page.name}}
+  <div class="title-wrapper">
+    <div class="title-container" *ngFor="let page of pages">
+      {{page.name}}
+    </div>
   </div>
 </div>

@@ -1,19 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  $header-height: 100px;
-  $header-width: 400px;
-  $list-width: 400px;
-  $detail-width: 400px;
-
-  $color-primary: #95BF74;
-  $color-secondary: #220901;
-  $color-extra1: #556F44;
-  $color-extra2: #659B5E;
-
-  $color-text1: $color-secondary;
-  $color-text2: white;
-
-  $font-family-primary: Bahnschrift, sans-serif;
+  --header-height: 100px;
+  --header-width: 400px;
+  --list-width: 400px;
+  --detail-width: 400px;
+  --color-primary: #95BF74;
+  --color-secondary: #220901;
+  --color-extra1: #556F44;
+  --color-extra2: #659B5E;
+  --color-text1: var(--color-secondary);
+  --color-text2: #f1f1f1;
+  --font-family-primary: Bahnschrift, sans-serif;
 }
 
 
@@ -23,9 +20,9 @@ body, html {
 }
 
 .custom-tooltip {
-  background-color: var($color-secondary) !important;
-  color: $color-text2 !important;
-  font-family: $font-family-primary;
+  background-color: var(--color-secondary) !important;
+  color: var(--color-text2) !important;
+  font-family: var(--font-family-primary), sans-serif;
   font-size: 9pt;
   border: none !important;
   //border: 1px solid $color-primary !important;
