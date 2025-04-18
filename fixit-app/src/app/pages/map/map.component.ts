@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import {Component, AfterViewInit, HostListener} from '@angular/core';
 import * as L from 'leaflet';
 import {CommonModule} from '@angular/common';
 import {repaircafes} from '../../../assets/data/repaircafes';
@@ -19,6 +19,12 @@ export class MapComponent implements AfterViewInit {
     //initialisert die Karte und Marker für alle Cafes
     this.initMap();
     this.initMarkers();
+  }
+
+  @HostListener('document:keyup.escape', ['$event'])
+  onEscapePressed(event: KeyboardEvent) {
+    //simuliere klick auf map, um detailansicht zu schließen
+    this.map.fireEvent('click');
   }
 
   //öffnet oder schließt das Cafe Detail Fenster
