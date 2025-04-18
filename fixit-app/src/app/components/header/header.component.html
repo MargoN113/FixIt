@@ -1,9 +1,14 @@
-<div class="header">
-  <div class="logo">
-    <img src="assets/images/fixit-logo1.png" height="60" width="60" alt=""/>
+<div id="header" (mouseleave)="headerHoverEnd()">
+  <div class="identity">
+    <div class="logo">
+      <img src="assets/images/fixit-logo1.png" height="60" width="60" alt=""/>
+    </div>
+    <div class="company">
+      FixIt Augsburg
+    </div>
   </div>
-  <div class="company">
-    FixIt Augsburg
+  <div class="extend-button" (mouseenter)="headerHoverStart()">
+    >
   </div>
   <div class="title-container" *ngFor="let page of pages">
     {{page.name}}

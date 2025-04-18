@@ -17,7 +17,7 @@ export class MapComponent implements AfterViewInit {
     this.initMarkers();
   }
 
-  openCafeDetails(cafe: any) {
+  toggleCafeDetails(cafe: any) {
     //click auf Element im Fokus? -> schließt den Fokus
     if(document.getElementById(cafe.id)?.classList.contains("list-element-focus")){
       this.closeCafeDetails();
@@ -40,10 +40,11 @@ export class MapComponent implements AfterViewInit {
     this.highlightMarker(cafe.marker);
 
     if(document.getElementsByClassName("show-details").length === 0){
-      this.map.panBy([400, 0], {animate: false});
+      //this.map.panBy([-400, 0], {animate: false});
+      //document.getElementById("map-frame")?.classList.add("map-frame-small");
+      document.documentElement.style.setProperty(`$header-width`, "800px");
+      document.getElementById("details")?.classList.add("show-details");
     }
-    document.getElementById("map-frame")?.classList.add("map-frame-small");
-    document.getElementById("details")?.classList.add("show-details");
   }
 
   closeCafeDetails() {
@@ -52,9 +53,10 @@ export class MapComponent implements AfterViewInit {
       oldFocusElement.classList.remove("list-element-focus");
     }
 
-    document.getElementById("map-frame")?.classList.remove("map-frame-small");
+    //document.getElementById("map-frame")?.classList.remove("map-frame-small");
+    document.documentElement.style.setProperty(`$header-width`, "400px");
     document.getElementById("details")?.classList.remove("show-details");
-    this.map.panBy([-400, 0], {animate: false});
+    //this.map.panBy([400, 0], {animate: false});
   }
   hoverStartCafe(cafe: any) {
     const cafeListElement = document.getElementById(cafe.id);
@@ -107,8 +109,12 @@ export class MapComponent implements AfterViewInit {
     this.map = L.map('map', {
       center: [ 48.354, 10.9 ],
       zoom: 14,
-
+      zoomControl: false
     });
+
+    L.control.zoom({
+      position: 'bottomleft'
+    }).addTo(this.map);
 
     this.map.on('click', () => {
       console.log("TEST");
@@ -152,7 +158,7 @@ export class MapComponent implements AfterViewInit {
         });
 
         cafe['marker'].on('click', () => {
-          this.openCafeDetails(cafe);
+          this.toggleCafeDetails(cafe);
         });
       }
     });

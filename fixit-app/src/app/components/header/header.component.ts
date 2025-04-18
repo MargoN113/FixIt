@@ -17,4 +17,11 @@ export class HeaderComponent implements AfterViewInit {
   ngAfterViewInit(): void {
   }
 
+  headerHoverStart() {
+    document.getElementById("header")?.classList.add('header-extended');
+  }
+
+  headerHoverEnd() {
+    document.getElementById("header")?.classList.remove('header-extended');
+  }
 }

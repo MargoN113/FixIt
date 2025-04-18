@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="list">
-    <div [id]="cafe.id" class="list-element" *ngFor="let cafe of cafes" (click)="openCafeDetails(cafe)" (mouseenter)="hoverStartCafeList(cafe)" (mouseleave)="hoverEndCafe(cafe)">
+    <div [id]="cafe.id" class="list-element" *ngFor="let cafe of cafes" (click)="toggleCafeDetails(cafe)" (mouseenter)="hoverStartCafeList(cafe)" (mouseleave)="hoverEndCafe(cafe)">
       <div class="list-element-name">
         {{cafe.name}}
       </div>
