@@ -78,7 +78,7 @@
   position: fixed;
   padding: 0 10px;
   font-size: 30px;
-  left: 350px;
+  left: calc(var(--header-width) - 50px);
   opacity: 0.6;
   transition: 0.5s ease-in-out;
 }
