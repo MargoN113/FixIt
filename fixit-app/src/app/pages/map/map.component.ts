@@ -44,10 +44,7 @@ export class MapComponent implements AfterViewInit {
 
     //wenn detail fenster schon offen, keine Änderungen
     if(document.getElementsByClassName("show-details").length === 0){ //sonst
-      //this.map.panBy([400, 0], {animate: false});
-
-      //macht die karte 400px kleiner
-      //document.getElementById("map-frame")?.classList.add("map-frame-small");
+      //setzt die Breite des headers auf 800px (liste + details)
       document.documentElement.style.setProperty(`--header-width`, "800px");
       //fügt das detail fenster hinzu
       document.getElementById("details")?.classList.add("show-details");
@@ -62,13 +59,10 @@ export class MapComponent implements AfterViewInit {
       focusElement.classList.remove("list-element-focus");
     }
 
-    //macht map wieder groß
-    //document.getElementById("map-frame")?.classList.remove("map-frame-small");
+    //setzt die Breite des headers auf 400px (nur noch liste)
     document.documentElement.style.setProperty(`--header-width`, "400px");
     //entfernt das detail fenster
     document.getElementById("details")?.classList.remove("show-details");
-    //macht den map pan rückgängig um 400px (breite des detail fensters)
-    //this.map.panBy([-400, 0], {animate: false});
   }
 
   //hovert über einen marker auf der map
@@ -186,7 +180,7 @@ export class MapComponent implements AfterViewInit {
           offset: [0, -5] //offset x,y
         }).setContent(cafe.name);
         //fügt den marker hinzu
-        cafe['marker'] = L.marker([cafe.lat, cafe.lng], { icon: customMarkerIcon, riseOnHover: true }).addTo(this.map).bindTooltip(customTooltip);
+        cafe['marker'] = L.marker([cafe?.lat, cafe?.lng], { icon: customMarkerIcon, riseOnHover: true }).addTo(this.map).bindTooltip(customTooltip);
 
         //listener maus drüber (hover start)
         cafe['marker'].on('mouseover', () => {
