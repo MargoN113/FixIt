@@ -59,8 +59,40 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ## Connecting to Database
+Before connecting to the database, you need to have PostgreSQL installed on your system. Follow the instructions below based on your operating system.
 
-For connecting to database, you should set an environment variable named `DB_PASSWORD`.
+## Windows
+##### Download [PostgreSQL](https://www.postgresql.org/download/windows/) from the official website:
+
+1. Run the installer and follow the setup wizard.
+2. During installation, you will be prompted to set a password for the default PostgreSQL user postgres. This is where you'll set the password (which will be your DB_PASSWORD).
+3. Once the installation is complete, make sure pgAdmin (the PostgreSQL GUI) is installed for easier management.
+
+## Linux
+1. Update your package list
+```bash
+sudo apt update
+```
+2. Install PostgreSQL
+```bash
+sudo apt install postgresql postgresql-contrib
+```
+3. Start PostgreSQL service
+```bash
+sudo service postgresql start
+```
+
+## MacOS
+1. Install PostgreSQL via Homebrew (if you don't have Homebrew, [install it](https://brew.sh/))
+```bash
+brew install postgresql
+```
+2. Start PostgreSQL service
+```bash
+brew services start postgresql
+```
+
+### For connecting to database, you should set an environment variable named `DB_PASSWORD` (Permanently or temporarily)
 
 ### Permanently: 
 #### Windows:
