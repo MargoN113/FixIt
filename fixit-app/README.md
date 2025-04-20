@@ -57,3 +57,41 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Connecting to Database
+
+For connecting to database, you should set an environment variable named `DB_PASSWORD`.
+
+### Permanently: 
+#### Windows:
+1. Press Win + S, type "Environment Variables", and press Enter.
+2. Click "Environment Variables..." in the window that opens.
+3. Under "User variables" or "System variables", click New....
+4. Name: `DB_PASSWORD`
+5. Value: `your_password`
+
+#### Linux/MacOS:
+Add the following line to your shell configuration file:
+
+If you use bash:
+Add this to `~/.bashrc`
+
+If you use zsh (macOS default):
+Add this to `~/.zshrc`
+
+### Temporarily:
+
+#### Windows (Command Prompt / cmd):
+```cmd
+set DB_PASSWORD=your_password
+```
+#### Linux/MacOS:
+```bash
+export DB_PASSWORD=your_password
+source ~/.bashrc     # or source ~/.zshrc
+
+```
+
+
+
+
