@@ -9,15 +9,13 @@ import {routes} from './app.routes';
 
 
 @NgModule({
-  declarations: [
-    MapComponent,
-    AppComponent,
-    HeaderComponent
-  ],
   imports: [
       RouterModule.forRoot(routes),
       CommonModule,
-      RouterOutlet
+      RouterOutlet,
+      MapComponent,
+      AppComponent,
+      HeaderComponent
   ],
   exports: [RouterModule]
 })
