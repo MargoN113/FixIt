@@ -1,3 +1,46 @@
+:root {
+  --header-height: 100px;
+  --header-width: 400px;
+  --list-width: 400px;
+  --detail-width: 400px;
+  --color-primary: #95BF74;
+  --color-secondary: #220901;
+  --color-extra1: #556F44;
+  --color-extra2: #659B5E;
+  --color-text1: var(--color-secondary);
+  --color-text2: #f1f1f1;
+  --font-family-primary: Bahnschrift, sans-serif;
+}
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-tooltip {
+  background-color: var(--color-secondary) !important;
+  color: var(--color-text2) !important;
+  font-family: var(--font-family-primary), sans-serif;
+  font-size: 9pt;
+  border: none !important;
+  //border: 1px solid $color-primary !important;
+  border-radius: 15px !important;
+  //box-shadow: none !important;
+  padding: 1px 8px !important;
+}
+.custom-tooltip::before {
+  opacity: 0 !important;
+}
+
+.custom-marker {
+  //filter: hue-rotate(48deg) saturate(0.1);
+}
+.custom-marker:hover {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));;
+}
+
+
 .App {
   text-align: center;
 }
