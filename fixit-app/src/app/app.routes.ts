@@ -6,5 +6,4 @@ export const routes: Routes = [
   { path: '', component: MapComponent },
   { path: 'map', component: MapComponent },
   { path: 'about', component: AboutComponent},
-
 ];
