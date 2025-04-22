@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import repaircafes from '../../assets/repaircafes.json';
 import './map.scss';  // Adjust the path as necessary
 import { MapContainer, TileLayer, Marker, Tooltip, ZoomControl } from 'react-leaflet'
+import Header from '../../components/header/header';
 
 
 
@@ -116,6 +117,7 @@ const Map: React.FC = () => {
 
     return (
         <div className="wrapper">
+            <Header></Header>
             <div className="list">
                 {cafes.map((cafe) => (
                     <div
