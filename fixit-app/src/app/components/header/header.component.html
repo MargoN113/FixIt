@@ -12,7 +12,7 @@
   </div>
   <div class="title-wrapper">
     <div class="title-container" *ngFor="let page of pages">
-      {{page.name}}
+      <a [routerLink]="[page.id]">{{ page.name }}</a>
     </div>
   </div>
 </div>

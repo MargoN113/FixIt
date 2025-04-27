@@ -105,7 +105,7 @@ export class MapComponent implements AfterViewInit {
     cafeMarker.setOpacity(1).setZIndexOffset(999).openTooltip();
   }
   //ende vom hover
-  hoverEndCafe(cafe: any) {
+  hoverEndCafe(cafe: any, listTrigger: boolean = false) {
     //entfernt alle hover css klassen
     const oldHoverElements = document.getElementsByClassName("list-element-hover");
     for(let oldHoverElement of oldHoverElements) {
@@ -121,7 +121,9 @@ export class MapComponent implements AfterViewInit {
     const focusElements = document.getElementsByClassName("list-element-focus");
     if(focusElements.length > 0){
       //wieder zu diesem in der Liste scrollen
-      focusElements[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if(!listTrigger){
+        focusElements[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       //den nicht mehr gehoverten marker wieder vernachlössigen
       cafe.marker.setOpacity(0.2).setZIndexOffset(0).closeTooltip();
       return;
