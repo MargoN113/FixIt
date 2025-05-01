@@ -8,7 +8,8 @@ const Header: React.FC = () => {
     const pages = [
         { id: "map", name: "Map" },
         { id: "about", name: "About us" },
-        { id: "register", name: "Register" }
+        { id: "register", name: "Register" },
+        { id: "faq", name: "FAQ" }
     ];
 
     useEffect(() => {
