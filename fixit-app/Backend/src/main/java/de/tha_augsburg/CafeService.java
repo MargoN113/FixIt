@@ -3,6 +3,7 @@ package de.tha_augsburg;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
+//Klasse zur Verwaltung von der Datenbank
 @Service
 public class CafeService {
 
@@ -21,4 +22,10 @@ public class CafeService {
     public List<Cafe> getAllCafes() {
         return cafeRepository.findAll();
     }
+
+    //Nur genehmigte Cafes zurückgeben
+    public List<Cafe> getApprovedCafes() {
+        return cafeRepository.findByApprovedTrue();
+    }
+
 }

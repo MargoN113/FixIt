@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
-
+//Controller kriegt Anfragen von Client und schickt die Antwort zurück
 @RestController
 public class CafeController {
 
@@ -27,6 +27,11 @@ public class CafeController {
     @GetMapping()
     public List<Cafe> getAllCafes() {
         return cafeService.getAllCafes();
+    }
+    
+    @GetMapping()
+    public List<Cafe> getApprovedCafes() {
+        return cafeService.getApprovedCafes();
     }    
     
     
