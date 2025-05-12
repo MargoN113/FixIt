@@ -34,5 +34,3 @@ build/
 
 #Node Modules
 node_modules/
-
-.prettierignore
