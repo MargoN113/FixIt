@@ -17,9 +17,9 @@ public class Cafe {
 
     @Column(nullable = false)
     private String name;
-
+    
     private String description, webseiteLink;
-
+    
     @Column(nullable = false)
     private String category;
 
@@ -35,6 +35,7 @@ public class Cafe {
     @Column(nullable = false)
     private boolean approved = false;
 
+
     public Long getId() {
         return id;
     }
@@ -43,6 +44,7 @@ public class Cafe {
         this.id = id;
     }
 
+    
     public String getName() {
         return name;
     }
@@ -51,6 +53,7 @@ public class Cafe {
         this.name = name;
     }
 
+    
     public String getdescription() {
         return description;
     }
@@ -59,6 +62,7 @@ public class Cafe {
         this.description = description;
     }
 
+    
     public String getcategory() {
         return category;
     }
@@ -98,4 +102,5 @@ public class Cafe {
     public void setWebseiteLink(String webseiteLink) {
         this.webseiteLink = webseiteLink;
     }
+
 }
