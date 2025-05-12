@@ -9,7 +9,7 @@ public class CafeService {
 
     private CafeRepository cafeRepository;
 
-    public CafeService(CafeRepository cafeRepository) {
+    public CafeService (CafeRepository cafeRepository) {
         this.cafeRepository = cafeRepository;
     }
 
@@ -27,4 +27,5 @@ public class CafeService {
     public List<Cafe> getApprovedCafes() {
         return cafeRepository.findByApprovedTrue();
     }
+
 }
