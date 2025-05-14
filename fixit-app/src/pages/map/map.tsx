@@ -32,6 +32,7 @@ const Map: React.FC = () => {
     useEffect(() => {
         setCafes(repaircafes);
 
+        
         if(mapRef.current) {
             mapRef.current.on('click', () => {
                 closeCafeDetails();
