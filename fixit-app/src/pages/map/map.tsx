@@ -20,6 +20,15 @@ interface Cafe {
 
 const Map: React.FC = () => {
     const [cafes, setCafes] = useState<Cafe[]>([]);
+    const [detailCafe, setDetailCafe] = useState<Cafe>({
+        description: "",
+        id: "",
+        lat: 0,
+        lng: 0,
+        marker: undefined,
+        name: "",
+        type: ""
+    });
     const mapRef = useRef<any>(null);
     const markerRefs = useRef<Record<string, RefObject<L.Marker | null>>>({});
     const markerIcon = L.icon({
@@ -50,6 +59,7 @@ const Map: React.FC = () => {
     };
 
     const toggleCafeDetails = (cafe: Cafe) => {
+        setDetailCafe(cafe);
         const el = document.getElementById(cafe.id);
         if (el?.classList.contains('list-element-focus')) {
             closeCafeDetails();
@@ -142,7 +152,11 @@ const Map: React.FC = () => {
                     </div>
                 ))}
             </div>
-            <div id="details"></div>
+            <div id="details">
+                <div className="detail-head">{detailCafe.name}</div>
+                <div className="detail-description">{detailCafe.description}</div>
+                <div className="detail-type">{detailCafe.type}</div>
+            </div>
             <div id="map-frame">
                 <MapContainer id={"map"} center={[48.354, 10.9]} zoom={14} zoomControl={false}>
                     <TileLayer
