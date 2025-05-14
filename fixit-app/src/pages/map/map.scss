@@ -92,3 +92,22 @@
 #map {
   height: 100svh;
 }
+#details {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.detail-head {
+  font-weight: bold;
+  font-size: 30pt;
+  padding: 30px 25px 10px 20px;
+}
+
+.detail-description {
+  padding: 10px 25px 30px 20px;
+}
+
+.detail-type {
+  padding: 20px 25px 20px 20px;
+  text-align: right;
+}
