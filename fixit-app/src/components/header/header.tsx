@@ -6,9 +6,9 @@ const Header: React.FC = () => {
     const location = useLocation();
 
     const pages = [
-        { id: "map", name: "Map" },
-        { id: "about", name: "About us" },
-        { id: "register", name: "Register" },
+        { id: "map", name: "Karte" },
+        { id: "about", name: "Über uns" },
+        { id: "register", name: "Cafe registrieren" },
         { id: "faq", name: "FAQ" }
     ];
 
