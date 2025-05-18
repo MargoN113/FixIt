@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState, KeyboardEvent, RefObject} from 'react';
+import React, {useEffect, useRef, useState, RefObject} from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import repaircafes from '../../assets/repaircafes.json';
@@ -20,6 +20,11 @@ interface Cafe {
 
 const Map: React.FC = () => {
     const [cafes, setCafes] = useState<Cafe[]>([]);
+
+    const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+    const [availableTypes, setAvailableTypes] = useState<string[]>([]);
+    const [searchTerm, setSearchTerm] = useState<string>("");
+
     const [detailCafe, setDetailCafe] = useState<Cafe>({
         description: "",
         id: "",
@@ -41,11 +46,35 @@ const Map: React.FC = () => {
 
     useEffect(() => {
         setCafes(repaircafes);
+
+        const types = Array.from(new Set(repaircafes.map(cafe => cafe.type)));
+        setAvailableTypes(types);
+
         console.log(repaircafes);
         for(let cafe of repaircafes) {
+
             markerRefs.current[cafe.id] = React.createRef<L.Marker>()
         }
     }, []);
+
+    //Filter for Cafes
+    const filteredCafes = cafes.filter(cafe => {
+        const matchesType = selectedTypes.length === 0 || selectedTypes.includes(cafe.type);
+        const matchesSearch = searchTerm.trim() === "" || cafe.name.toLowerCase().split(" ").some(word => word.startsWith(searchTerm.toLowerCase()));
+
+        return matchesType && matchesSearch;
+    });
+
+    //Handling when checkbox used
+    const handleTypeChange = (type: string, isChecked: boolean) => {
+    if (isChecked) {
+        setSelectedTypes(prev => [...prev, type]);
+    } else {
+        setSelectedTypes(prev => prev.filter(t => t !== type));
+    }
+    };
+
+
     const MapClickHandler: React.FC = () => {
         useMapEvents({
             click: (e) => {
@@ -137,7 +166,37 @@ const Map: React.FC = () => {
         <div className="wrapper">
             <Header></Header>
             <div className="list">
-                {cafes.map((cafe) => (
+                <div className="list-filters">
+                    <input
+                    type="text"
+                    placeholder="Suche ein Café"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                    <div className="filter-dropdown">
+                        <details>
+                            <summary>Filtern nach Typ</summary>
+                            <div className="dropdown-content">
+                                {availableTypes.map((type) => (
+                                    <label key={type} style={{ display: 'block' }}>
+                                        <input
+                                            type="checkbox"
+                                            value={type}
+                                            checked={selectedTypes.includes(type)}
+                                            onChange={(e) => handleTypeChange(e.target.value, e.target.checked)}
+                                        />
+                                        {type}
+                                    </label>
+                                ))}
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                
+                {filteredCafes.length === 0 ? (
+                    <div className="list-no-results">Keine Cafés gefunden</div>
+                ) : (
+                    filteredCafes.map((cafe) => (
                     <div
                         id={cafe.id}
                         key={cafe.id}
@@ -150,8 +209,9 @@ const Map: React.FC = () => {
                         <div className="list-element-description">{cafe.description}</div>
                         <div className="list-element-type">{cafe.type}</div>
                     </div>
-                ))}
-            </div>
+                    ))
+                )}
+                </div>
             <div id="details">
                 <div className="detail-head">{detailCafe.name}</div>
                 <div className="detail-description">{detailCafe.description}</div>
@@ -164,7 +224,7 @@ const Map: React.FC = () => {
                         maxZoom={19} minZoom={11}
                     />
                     <ZoomControl position="bottomright" />
-                    {cafes.map((cafe) => (
+                    {filteredCafes.map((cafe) => (
                         <Marker
                             key={cafe.id}
                             position={[cafe.lat!, cafe.lng!]}
