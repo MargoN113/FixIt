@@ -1,5 +1,7 @@
 package de.tha_augsburg;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,33 +10,39 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Cafe {
-
     //Eigenschaften von Cafe. description und Link zu Webseite müssen nicht zwindgend angegeben werden
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
+    private String description;
     
-    private String description, webseiteLink;
+    @Column(nullable = true)
+    private String webseiteLink;
     
     @Column(nullable = false)
+    @JsonProperty("type")
     private String category;
 
     @Column(nullable = false)
+    @JsonProperty("lng")
     private Double longitude;
 
     @Column(nullable = false)
-    private double latitude;
+    @JsonProperty("lat")
+    private Double latitude;
 
     @Column(nullable = false)
-    private String mailadress;
+    private String email;
 
     @Column(nullable = false)
     private boolean approved = false;
 
+    public Cafe() {}
 
     public Long getId() {
         return id;
@@ -87,12 +95,12 @@ public class Cafe {
         this.latitude = latitude;
     }
 
-    public String getMailadress() {
-        return mailadress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMailadress(String mailadress) {
-        this.mailadress = mailadress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getWebseiteLink() {
@@ -102,5 +110,14 @@ public class Cafe {
     public void setWebseiteLink(String webseiteLink) {
         this.webseiteLink = webseiteLink;
     }
+
+    public boolean isApproved() {
+    return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+
 
 }
