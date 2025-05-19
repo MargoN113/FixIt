@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState, RefObject} from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import repaircafes from '../../assets/repaircafes.json';
 import './map.scss';  // Adjust the path as necessary
 import {MapContainer, TileLayer, Marker, Tooltip, ZoomControl, useMapEvents} from 'react-leaflet'
 import Header from '../../components/header/header';
@@ -9,12 +8,14 @@ import Header from '../../components/header/header';
 
 
 interface Cafe {
-    id: string;
+    id: number;
     name: string;
     description: string;
     type: string;
-    lat?: number;
-    lng?: number;
+    lat: number;
+    lng: number;
+    email: string;
+    webseiteLink?: string;
     marker?: any;
 }
 
@@ -27,12 +28,14 @@ const Map: React.FC = () => {
 
     const [detailCafe, setDetailCafe] = useState<Cafe>({
         description: "",
-        id: "",
+        id: 0,
         lat: 0,
         lng: 0,
         marker: undefined,
         name: "",
-        type: ""
+        type: "",
+        email: "",
+        webseiteLink: "",
     });
     const mapRef = useRef<any>(null);
     const markerRefs = useRef<Record<string, RefObject<L.Marker | null>>>({});
@@ -45,22 +48,33 @@ const Map: React.FC = () => {
     });
 
     useEffect(() => {
-        setCafes(repaircafes);
+        fetch("http://localhost:8080/api/cafes/approved") //Zugriff auf Backend und Abfrage von Cafes
+        .then((response) => response.json())
+        .then((data: Cafe[]) => {
+            setCafes(data);
 
-        const types = Array.from(new Set(repaircafes.map(cafe => cafe.type)));
+        const types = Array.from(new Set(data.map(cafe => cafe.type)));
         setAvailableTypes(types);
 
-        console.log(repaircafes);
-        for(let cafe of repaircafes) {
+        console.log(data);
+        for(let cafe of data) {
 
-            markerRefs.current[cafe.id] = React.createRef<L.Marker>()
+            markerRefs.current[cafe.id] = React.createRef<L.Marker>();
         }
+        })
+        .catch((error) => console.error("Fehler beim Laden der Cafés:", error));
     }, []);
 
     //Filter for Cafes
     const filteredCafes = cafes.filter(cafe => {
         const matchesType = selectedTypes.length === 0 || selectedTypes.includes(cafe.type);
-        const matchesSearch = searchTerm.trim() === "" || cafe.name.toLowerCase().split(" ").some(word => word.startsWith(searchTerm.toLowerCase()));
+
+        const search = searchTerm.toLowerCase().trim();
+        const cafeName = cafe.name.toLowerCase();
+
+        const matchesSearch = search === "" || 
+        cafeName.split(" ").some(word => word.startsWith(search)) ||
+        cafeName.includes(search);
 
         return matchesType && matchesSearch;
     });
@@ -89,7 +103,7 @@ const Map: React.FC = () => {
 
     const toggleCafeDetails = (cafe: Cafe) => {
         setDetailCafe(cafe);
-        const el = document.getElementById(cafe.id);
+        const el = document.getElementById(cafe.id.toString());
         if (el?.classList.contains('list-element-focus')) {
             closeCafeDetails();
             return;
@@ -117,7 +131,7 @@ const Map: React.FC = () => {
     };
 
     const hoverStartCafeMarker = (cafe: Cafe) => {
-        const el = document.getElementById(cafe.id);
+        const el = document.getElementById(cafe.id.toString());
         el?.classList.add('list-element-hover');
         el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         highlightMarker(cafe.id);
@@ -132,7 +146,7 @@ const Map: React.FC = () => {
         console.log(markerRefs);
         const focused = document.querySelector('.list-element-focus')?.id;
         cafes.forEach(c => {
-            if (c.id !== focused) {
+            if (c.id.toString() !== focused) {
                 markerRefs.current[c.id]?.current?.setOpacity(0.2).setZIndexOffset(0).closeTooltip();
             }
         });
@@ -144,7 +158,7 @@ const Map: React.FC = () => {
             el.classList.remove('list-element-hover')
         );
 
-        const isFocused = document.getElementById(cafe.id)?.classList.contains('list-element-focus');
+        const isFocused = document.getElementById(cafe.id.toString())?.classList.contains('list-element-focus');
         if (isFocused) {
             highlightMarker(cafe.id);
             return;
@@ -198,7 +212,7 @@ const Map: React.FC = () => {
                 ) : (
                     filteredCafes.map((cafe) => (
                     <div
-                        id={cafe.id}
+                        id={cafe.id.toString()}
                         key={cafe.id}
                         className="list-element"
                         onClick={() => toggleCafeDetails(cafe)}
