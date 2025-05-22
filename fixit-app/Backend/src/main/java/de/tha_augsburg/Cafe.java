@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Cafe {
-    //Eigenschaften von Cafe. description und Link zu Webseite müssen nicht zwindgend angegeben werden
+    //Eigenschaften von Cafe
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
