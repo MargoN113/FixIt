@@ -1,12 +1,12 @@
 package de.tha_augsburg;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.util.List;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -23,9 +23,9 @@ public class CafeController {
         this.cafeService = cafeService;
     }
 
-    //Methode, die addCafe() in CafeService aufruft und dieses zurückgibt
+    //Methode, die addCafe() in CafeService aufruft usnd dieses zurückgibt
     @PostMapping("/register")
-    public Cafe addCafe(@RequestBody Cafe cafe) {
+    public Cafe addCafe(@Valid @RequestBody Cafe cafe) {
         return cafeService.addCafe(cafe);
     }
 
