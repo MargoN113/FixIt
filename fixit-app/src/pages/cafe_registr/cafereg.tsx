@@ -111,20 +111,24 @@ const CafeReg: React.FC = () => {
 
     //validation of data
     const validateField = (name: string, value: string): string | null => {
-        if (name === "name" && /[$%§@!?#^~*()_+={}<>]/.test(value)) {
-            return 'Ungültiger Name! Zeichen "$%§@!?#^~*()_+={}<>" sind nicht erlaubt!';
+        if (name === "name" && /[$%§@!?#^~*()_+={}<>;]/.test(value)) {
+            return "Ungültiger Name! Zeichen $%§@!?#^~*()_+={}<>; sind nicht erlaubt!";
         }
-        if (name === "longitude") {
-            const num = parseFloat(value);
-            if (isNaN(num) || num < -180 || num > 180) return "Längengrad muss zwischen -180 und 180 liegen!";
-        }
-        if (name === "latitude") {
-            const num = parseFloat(value);
-            if (isNaN(num) || num < -90 || num > 90) return "Breitengrad muss zwischen -90 und 90 liegen!";
-        }
-        if (name === "email") {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(value)) return "Ungültige E-Mail-Adresse!";
+        if (value.trim().length > 0) {
+            if (name === "longitude") {
+                const num = parseFloat(value);
+                if (isNaN(num) || num < -180 || num > 180) return "Längengrad muss zwischen -180 und 180 liegen!";
+                
+            }
+            if (name === "latitude") {
+                const num = parseFloat(value);
+                if (isNaN(num) || num < -90 || num > 90) return "Breitengrad muss zwischen -90 und 90 liegen!";
+                
+            }
+            if (name === "email") {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) return "Ungültige E-Mail-Adresse!";
+            }
         }
         if (name === "webLink" && value) {
             try {
@@ -137,11 +141,11 @@ const CafeReg: React.FC = () => {
     };
 
     return (
-        <div className="wrapper">
+        <div className="form-wrapper">
             <Header />
             <div className="form-container">
-                <h2 className="form-title">Café registrieren</h2>
-                <form onSubmit={handleSubmit}>
+                <h2 className="form-title">Wollen Sie Ihr Café registrieren? Dann brauchen wir Ihre Daten!</h2>
+                <form onSubmit={handleSubmit} noValidate>
                     <label>Name<span className="required">*</span></label>
                     <input
                         type="text"
