@@ -36,7 +36,6 @@ const Map: React.FC = () => {
         email: "",
         webseiteLink: "",
     });
-    const mapRef = useRef<any>(null);
     const markerRefs = useRef<Record<string, RefObject<L.Marker | null>>>({});
     const markerIcon = L.icon({
         iconUrl: '/marker.png',

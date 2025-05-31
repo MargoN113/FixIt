@@ -33,9 +33,6 @@ body, html {
   opacity: 0 !important;
 }
 
-.custom-marker {
-  //filter: hue-rotate(48deg) saturate(0.1);
-}
 .custom-marker:hover {
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));;
 }
