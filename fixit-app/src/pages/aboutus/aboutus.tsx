@@ -2,62 +2,51 @@ import React from "react";
 import "./aboutus.scss"; // Adjust the path as necessary
 import Header from "../../components/header/header";
 
-const AboutUs: React.FC = () => {
+const Aboutus: React.FC = () => {
   return (
     <div>
       <Header></Header>
-      <div className="aboutus">
-        <h2>About Us</h2>
+      <div className="über uns">
+        <h2>Über uns</h2>
 
         <p>
-          So far it lists 39 Repair Cafés, but we are working on getting the
-          information from more confirmed.
+          Bisher sind 39 Repair Cafes aufgelistet, aber wir arbeiten daran, die Informationen von weiteren bestätigten Quellen zu erhalten.
         </p>
 
         <p>
-          The website is open source, see the source code on{" "}
+          Die Webseite ist Open Source, siehe den Quellcode auf {" "}
           <a href="https://github.com">Github</a>.
         </p>
 
         <p>
-          All information on this website is Augsburg specific, for more
-          information on Repair Cafés in general see{" "}
+          Alle Information auf dieser Website beziehen sich auf Augsburg. Weitere Informationen zu Repair Cafes im Allgemeinen finden Sie unter{" "}
           <a href="https://repaircafe.org">repaircafe.org</a>.
         </p>
 
         <p>
-          If you would like to add a Repair Café or if any information is
-          incorrect or incomplete, we would greatly appreciate an email. For
-          adding, we prefer to use this{" "}
+          Wenn Sie ein Repair Cafe hinzufügen möchten oder wenn Information falsch oder unvollständig sind, würden wir uns über eine Email freuen. Zum hinzufügen verwenden wir am liebsten diesen.{" "}
           <a href="#" title="Questionnaire (currently in Dutch)">
-            questionnaire
+            Fragebogen
           </a>
           .
         </p>
 
-        <p>We are still looking for help with:</p>
+        <p>Wir suchen noch Unterstützung bei.</p>
 
         <ul className="list-disc list-inside">
           <li>
-            <strong>Community management.</strong> Someone who supports in the
-            communication with the Repair Cafés so that the agenda is as
-            accurate and complete as possible and stays that way.
+            <strong>Komunikations Managment.</strong> Jemand, der bei der Kommunikation mit den Repair Cafes unterstützt, damit die Aufgabe so genau und vollständig wie möglich ist und bleibt.
           </li>
           <li>
-            <strong>Visual / UI / UX Design.</strong> Someone who can contribute
-            ideas on structure, navigation, how things should work and what it
-            should look like. We have a Figma file full of designs we'd love to
-            share with you.
+            <strong>Visualisierung / UI / UX Design.</strong> Jemand, der Ideen zu struktur, Navigation, Funktionsweise und Aussehen einbringen kann. Wir haben eine Figma-Datei voller Designs , die wir gerne mit Ihnen teilen möchten
           </li>
           <li>
-            <strong>Development.</strong> Mainly front-end development. Someone
-            who can possibly co-develop and act as a backup. Someone with
-            knowledge of for example React, Next and Tailwind. See the code on{" "}
+            <strong>Entwicklung.</strong> Hauptsählich Frontend-Entwicklung, Jemand, der möglicherweise mittentwickeln und als Backup fungieren kann. Jemand mit Kenntnissen in z.b.React, Next und Tailwind. Siehe den Code auf {" "}
             <a href="https://github.com">Github</a> for more info.
           </li>
         </ul>
 
-        <p>Contact</p>
+        <p>Kontakt</p>
         <p>
           <a href="mailto:info@repaircafe.fixit">info@repaircafe.fixit</a>
         </p>
@@ -66,4 +55,4 @@ const AboutUs: React.FC = () => {
   );
 };
 
-export default AboutUs;
+export default Aboutus;
