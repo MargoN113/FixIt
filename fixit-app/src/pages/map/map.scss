@@ -98,8 +98,6 @@
 #map-frame {
   height: 100%;
   width: calc(100dvw - var(--list-width));
-  //margin-left: 0;
-  //transition: .5s ease-in-out;
 }
 
 #details {
@@ -142,25 +140,23 @@
 }
 
 .filter-dropdown {
-  position: relative;
   z-index: 10;
   background-color: var(--color-primary);
   padding: 10px;
 
   details[open] .dropdown-content {
     position: absolute;
-    top: 100%;
+    padding: 10px;
     right: 0;
     z-index: 999;
+    box-shadow: 0 4px 8px var(--color-extra1);
+    border-radius: 0.5px;
     background-color: var(--color-primary);
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   }
 
   summary {
     cursor: pointer;
     font-weight: bold;
-    margin-left: 20px;
   }
 
   .dropdown-content {
@@ -169,6 +165,7 @@
     label {
       display: block;
       margin: 4px 0;
+      color: var(--color-secondary);
     }
 
     input[type='checkbox'] {
@@ -181,11 +178,10 @@
   }
 }
 .list-filters input[type='text'] {
-  flex: 1;
-  height: 25px;
+  height: 38px;
   font-size: 14px;
-  border: 2px solid;
-  border-radius: 6px;
+  border: 1.5px solid;
+  border-radius: 10px;
 }
 
 .list-filters input::placeholder {

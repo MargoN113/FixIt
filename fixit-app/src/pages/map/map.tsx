@@ -6,14 +6,13 @@ import {MapContainer, TileLayer, Marker, Tooltip, ZoomControl, useMapEvents} fro
 import Header from '../../components/header/header';
 
 
-
 interface Cafe {
     id: number;
     name: string;
     description: string;
     type: string;
-    lat: number;
-    lng: number;
+    latitude: number;
+    longitude: number;
     email: string;
     webseiteLink?: string;
     marker?: any;
@@ -29,15 +28,14 @@ const Map: React.FC = () => {
     const [detailCafe, setDetailCafe] = useState<Cafe>({
         description: "",
         id: 0,
-        lat: 0,
-        lng: 0,
+        latitude: 0,
+        longitude: 0,
         marker: undefined,
         name: "",
         type: "",
         email: "",
         webseiteLink: "",
     });
-    const mapRef = useRef<any>(null);
     const markerRefs = useRef<Record<string, RefObject<L.Marker | null>>>({});
     const markerIcon = L.icon({
         iconUrl: '/marker.png',
@@ -241,7 +239,7 @@ const Map: React.FC = () => {
                     {filteredCafes.map((cafe) => (
                         <Marker
                             key={cafe.id}
-                            position={[cafe.lat!, cafe.lng!]}
+                            position={[cafe.latitude!, cafe.longitude!]}
                             icon={markerIcon}
                             ref={markerRefs.current[cafe.id]}
                             eventHandlers={{

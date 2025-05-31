@@ -7,6 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Cafe {
@@ -15,6 +18,8 @@ public class Cafe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    @Size(max = 50)
     @Column(nullable = false)
     private String name;
 
@@ -29,13 +34,12 @@ public class Cafe {
     private String category;
 
     @Column(nullable = false)
-    @JsonProperty("lng")
     private Double longitude;
 
     @Column(nullable = false)
-    @JsonProperty("lat")
     private Double latitude;
 
+    @Email
     @Column(nullable = false)
     private String email;
 
@@ -51,8 +55,7 @@ public class Cafe {
     public void setId(Long id) {
         this.id = id;
     }
-
-    
+ 
     public String getName() {
         return name;
     }
@@ -60,38 +63,36 @@ public class Cafe {
     public void setName(String name) {
         this.name = name;
     }
-
     
-    public String getdescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setdescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    
-    public String getcategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setcategory(String category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
-    public Double getlongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setlongitude(Double longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
-    public Double getlatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setlatitude(Double latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
@@ -118,6 +119,4 @@ public class Cafe {
     public void setApproved(boolean approved) {
         this.approved = approved;
     }
-
-
 }

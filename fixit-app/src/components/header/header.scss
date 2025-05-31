@@ -48,7 +48,6 @@
 
 .title-wrapper {
   display: flex;
-  position: fixed;
   left: var(--list-width);
   width: calc(100svw - var(--list-width));
 }
@@ -57,19 +56,27 @@
   justify-content: center;
   text-align: center;
   padding: 20px 30px;
+  font-size: 17px;
   margin: 0 10px;
   transition: 0.5s ease-in-out;
   cursor: pointer;
 
-  &:first-child {
-    color: var(--color-primary);
-  }
   &:last-child {
     margin-left: auto;
   }
   &:hover {
     color: var(--color-extra1);
   }
+}
+
+.title-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px 20px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .extend-button {

@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     const pages = [
         { id: "map", name: "Karte" },
         { id: "about", name: "Über uns" },
-        { id: "register", name: "Cafe registrieren" },
+        { id: "register", name: "Café registrieren" },
         { id: "faq", name: "FAQ" }
     ];
 
@@ -44,7 +44,7 @@ const Header: React.FC = () => {
             <div className="title-wrapper">
                 {pages.map((page) => (
                     <div className="title-container" key={page.id}>
-                        <Link to={`/${page.id}`}>{page.name}</Link>
+                        <Link to={`/${page.id}`} className="title-link">{page.name}</Link>
                     </div>
                 ))}
             </div>
