@@ -91,12 +91,17 @@ brew services start postgresql
 
 #### Linux/MacOS:
 Add the following line to your shell configuration file:
+```bash
+export DB_PASSWORD=your_password
+source ~/.bashrc     # or source ~/.zshrc
 
+```
 If you use bash:
 Add this to `~/.bashrc`
 
 If you use zsh (macOS default):
 Add this to `~/.zshrc`
+
 
 ### Temporarily:
 
@@ -105,9 +110,8 @@ Add this to `~/.zshrc`
 set DB_PASSWORD=your_password
 ```
 #### Linux/MacOS:
+Execute this command in your terminal:
 ```bash
 export DB_PASSWORD=your_password
-source ~/.bashrc     # or source ~/.zshrc
-
 ```
 
