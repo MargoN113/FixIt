@@ -49,6 +49,42 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 This project uses Spring Boot as the backend. Follow these steps to get the backend up and running.
 
 **Please note that you must have Java 17+ (e.g. OpenJDK) installed. If not, here is an instruction:**
+### Java Installation
+#### Windows
+Download OpenJDK 17+ von [Adoptium/Temurin](https://adoptium.net/en-GB/temurin/releases)
+
+#### Linux
+Run this commands in the terminal:
+```bash
+sudo apt update
+sudo apt install openjdk-17-jdk
+```
+
+#### MacOS (via Homebrew)
+If Homebrew isn't installed: https://brew.sh
+
+Then run this commands in the terminal:
+```bash
+brew install openjdk@17
+sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
+```
+
+## Running the project
+There are two possibilities to run the backend:
+##### 1. You can use Maven:
+Type this command in the terminal:
+```bash
+./mvnw spring-boot:run
+```
+You will immediately see the info that the application is running.
+##### 2. Open the file located at:
+```
+Backend\src\main\java\de\tha_augsburg\FixItApplication.java
+```
+Click the button "Run Java" in the upper right corner.
+You will immediately see the info that the application is running.
+
+
 # Connecting to Database
 Before connecting to the database, you need to have PostgreSQL installed on your system. Follow the instructions below based on your operating system.
 
@@ -74,7 +110,7 @@ sudo service postgresql start
 ```
 
 ## MacOS
-1. Install PostgreSQL via Homebrew (if you don't have Homebrew, [install it](https://brew.sh/))
+1. Install PostgreSQL via Homebrew
 ```bash
 brew install postgresql
 ```
