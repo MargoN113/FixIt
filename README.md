@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Frontend: Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -45,6 +45,10 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+# Backend: Starting a Spring Boot App
+This project uses Spring Boot as the backend. Follow these steps to get the backend up and running.
+
+**Please note that you must have Java 17+ (e.g. OpenJDK) installed. If not, here is an instruction:**
 # Connecting to Database
 Before connecting to the database, you need to have PostgreSQL installed on your system. Follow the instructions below based on your operating system.
 
