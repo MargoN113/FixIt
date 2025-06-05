@@ -70,7 +70,7 @@ sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/Java
 ```
 
 ## Running the project
-There are two possibilities to run the backend:
+**Open a new terminal**. There are two possibilities to run the backend:
 ##### 1. You can use Maven:
 Type this command in the terminal:
 ```bash
@@ -84,6 +84,7 @@ Backend\src\main\java\de\tha_augsburg\FixItApplication.java
 Click the button "Run Java" in the upper right corner.
 You will immediately see the info that the application is running.
 
+**You must start the backend and frontend parallel, than you will be able to see all cafes in the application.**
 
 # Connecting to Database
 Before connecting to the database, you need to have PostgreSQL installed on your system. Follow the instructions below based on your operating system.
