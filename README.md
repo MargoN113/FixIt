@@ -84,7 +84,8 @@ Backend\src\main\java\de\tha_augsburg\FixItApplication.java
 Click the button "Run Java" in the upper right corner.
 You will immediately see the info that the application is running.
 
-**You must start the backend and frontend parallel, than you will be able to see all cafes in the application.**
+**You must start the backend and frontend parallel, than you will be able to see all cafes in the application.
+The backend is running on port 8080.**
 
 # Connecting to Database
 Before connecting to the database, you need to have PostgreSQL installed on your system. Follow the instructions below based on your operating system.
