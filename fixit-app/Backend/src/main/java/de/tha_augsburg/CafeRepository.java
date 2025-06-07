@@ -7,4 +7,8 @@ public interface CafeRepository extends JpaRepository<Cafe, Long> {
 
     //Methode zur Suche aller Cafes, die approved wurden
     public List<Cafe> findByApprovedTrue();
+
+    //Methode zur Suche aller Cafes, die nicht approved wurden
+    public List<Cafe> findByApprovedFalse();
+
 }
