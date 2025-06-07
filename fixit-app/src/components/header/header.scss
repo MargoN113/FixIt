@@ -79,6 +79,11 @@
   color: inherit;
 }
 
+#header .title-link:hover {
+  color: var(--color-extra1);
+}
+
+
 .extend-button {
   position: fixed;
   padding: 0 10px;
