@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Frontend: Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -45,6 +45,48 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+# Backend: Starting a Spring Boot App
+This project uses Spring Boot as the backend. Follow these steps to get the backend up and running.
+
+**Please note that you must have Java 17+ (e.g. OpenJDK) installed. If not, here is an instruction:**
+### Java Installation
+#### Windows
+Download OpenJDK 17+ von [Adoptium/Temurin](https://adoptium.net/en-GB/temurin/releases)
+
+#### Linux
+Run this commands in the terminal:
+```bash
+sudo apt update
+sudo apt install openjdk-17-jdk
+```
+
+#### MacOS (via Homebrew)
+If Homebrew isn't installed: https://brew.sh
+
+Then run this commands in the terminal:
+```bash
+brew install openjdk@17
+sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
+```
+
+## Running the project
+**Open a new terminal**. There are two possibilities to run the backend:
+##### 1. You can use Maven:
+Type this command in the terminal:
+```bash
+./mvnw spring-boot:run
+```
+You will immediately see the info that the application is running.
+##### 2. Open the file located at:
+```
+Backend\src\main\java\de\tha_augsburg\FixItApplication.java
+```
+Click the button "Run Java" in the upper right corner.
+You will immediately see the info that the application is running.
+
+**You must start the backend and frontend parallel, than you will be able to see all cafes in the application.
+The backend is running on port 8080.**
+
 # Connecting to Database
 Before connecting to the database, you need to have PostgreSQL installed on your system. Follow the instructions below based on your operating system.
 
@@ -70,7 +112,7 @@ sudo service postgresql start
 ```
 
 ## MacOS
-1. Install PostgreSQL via Homebrew (if you don't have Homebrew, [install it](https://brew.sh/))
+1. Install PostgreSQL via Homebrew
 ```bash
 brew install postgresql
 ```
@@ -91,12 +133,17 @@ brew services start postgresql
 
 #### Linux/MacOS:
 Add the following line to your shell configuration file:
+```bash
+export DB_PASSWORD=your_password
+source ~/.bashrc     # or source ~/.zshrc
 
+```
 If you use bash:
 Add this to `~/.bashrc`
 
 If you use zsh (macOS default):
 Add this to `~/.zshrc`
+
 
 ### Temporarily:
 
@@ -105,9 +152,8 @@ Add this to `~/.zshrc`
 set DB_PASSWORD=your_password
 ```
 #### Linux/MacOS:
+Execute this command in your terminal:
 ```bash
 export DB_PASSWORD=your_password
-source ~/.bashrc     # or source ~/.zshrc
-
 ```
 
