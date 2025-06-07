@@ -26,6 +26,8 @@ const CafeReg: React.FC = () => {
     const [availableTypes, setAvailableTypes] = useState<string[]>([]);
     const [errors, setErrors] = useState<Partial<Record<keyof CafeFormData, string>>>({});
 
+    //useState for showing a checkmark if the form was succesfully sent
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:8080/api/cafes/approved")
@@ -64,20 +66,6 @@ const CafeReg: React.FC = () => {
         }
         setErrors(newErrors);
 
-        if (!formData.name || !formData.type || !formData.latitude || !formData.longitude || !formData.description || !formData.email) {
-            toast("Bitte füllen Sie alle Felder aus!", {
-            icon: "⚠️",
-            });
-            return;
-        }
-
-        if (Object.keys(newErrors).length > 0) {
-            toast("Bitte korrigieren Sie alle Fehler im Formular!", {
-            icon: "⚠️",
-            });
-            return;
-        }
-
         fetch("http://localhost:8080/api/cafes/register", {
         method: "POST",
         headers: {
@@ -102,11 +90,12 @@ const CafeReg: React.FC = () => {
                     webLink: ""
                 });
                 setErrors({});
+                setIsSubmitted(true);
             } else {
                 toast.error("Fehler beim Speichern!");
             }
         })
-        .catch(() => toast.error("Verbindungsfehler!"));
+        .catch(() => toast.error("Verbindung mit der DB fehlgeschlagen!"));
     };
 
     //validation of data
@@ -140,10 +129,35 @@ const CafeReg: React.FC = () => {
         return null;
     };
 
+    //Component for controlling the button "Absenden" 
+    const isFormValid = (): boolean => {
+    const requiredFields = ['name', 'type', 'longitude', 'latitude', 'description', 'email'] as const;
+
+    for (const field of requiredFields) {
+        if (!formData[field] || formData[field].trim() === '') {
+        return false;
+        }
+    }
+
+    if (Object.values(errors).some(error => error !== undefined && error !== null)) {
+        return false;
+    }
+
+    return true;
+    };
+
     return (
         <div className="form-wrapper">
             <Header />
             <div className="form-container">
+                {isSubmitted ? (
+                <div className="success-message">
+                    <div className="checkmark">✔</div>
+                    <h2>Vielen Dank für Ihre Registrierung!</h2>
+                    <p>Wir prüfen Ihre Angaben und melden uns bald bei Ihnen.</p>
+                </div>
+                ) : (
+                    <>
                 <h2 className="form-title">Wollen Sie Ihr Café registrieren? Dann brauchen wir Ihre Daten!</h2>
                 <form onSubmit={handleSubmit} noValidate>
                     <label>Name<span className="required">*</span></label>
@@ -214,12 +228,14 @@ const CafeReg: React.FC = () => {
                         onChange={handleChange}
                     />
                     {errors.webLink && <span className="error">{errors.webLink}</span>}
-                    <button type="submit">Absenden</button>
+                    <button type="submit" disabled={!isFormValid()}>Absenden</button>
                     <p className="form-note">
                         Ihre Daten werden in unserer Datenbank gespeichert und müssen erst durch einen unserer Mitarbeiter geprüft werden. 
                         Wir melden uns umgehend :)
                     </p>
                 </form>
+                </>
+                )}
             </div>
             <Toaster position="top-center" />
         </div>

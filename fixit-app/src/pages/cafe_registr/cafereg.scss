@@ -74,6 +74,13 @@ button[type="submit"]:hover {
   cursor: pointer;
 }
 
+button[type="submit"]:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
 .required {
   color: red;
   margin-left: 4px;
@@ -97,4 +104,20 @@ button[type="submit"]:hover {
   color: #444;
   margin-bottom: 0px;
   text-align: center;
+}
+
+.success-message {
+  text-align: center;
+  margin-top: 150px;
+  padding: 2rem;
+  background-color: white;
+  border: 2px solid var(--color-extra2);
+  border-radius: 1rem;
+  color: var(--color-extra1);
+}
+
+.checkmark {
+  font-size: 5rem;
+  color: var(--color-extra1);
+  margin-bottom: 1rem;
 }

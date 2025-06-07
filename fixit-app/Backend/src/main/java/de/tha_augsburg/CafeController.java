@@ -23,7 +23,7 @@ public class CafeController {
         this.cafeService = cafeService;
     }
 
-    //Methode, die addCafe() in CafeService aufruft usnd dieses zurückgibt
+    //Methode, die addCafe() in CafeService aufruft und dieses zurückgibt
     @PostMapping("/register")
     public Cafe addCafe(@Valid @RequestBody Cafe cafe) {
         return cafeService.addCafe(cafe);
