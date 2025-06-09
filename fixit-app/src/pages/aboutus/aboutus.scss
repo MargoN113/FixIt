@@ -1,11 +1,45 @@
 @import '../../App';
 
 .aboutus {
+  margin-top: 100px;;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 20px 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding-top: 100px;
+  gap: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.aboutus h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #222;
+}
+
+.aboutus p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.aboutus ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.aboutus li {
+  margin-bottom: 0.75rem;
+}
+
+.aboutus a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.aboutus a:hover {
+  text-decoration: underline;
 }
