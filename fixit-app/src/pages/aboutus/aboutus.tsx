@@ -7,11 +7,11 @@ const Aboutus: React.FC = () => {
   return (
     <div>
       <Header />
-      <div className="about-us">
+      <div className="aboutus">
         <h2>Über uns</h2>
 
         <p>
-          Bisher sind 39 Repair Cafés aufgelistet, aber wir arbeiten daran, Informationen von weiteren bestätigten Quellen zu erhalten.
+          Bisher sind 32 Repair Cafés aufgelistet, aber wir arbeiten daran, Informationen von weiteren bestätigten Quellen zu erhalten.
         </p>
 
         <p>
@@ -24,7 +24,7 @@ const Aboutus: React.FC = () => {
           <a href="http://localhost:3000/register">Fragebogen</a>.
         </p>
 
-        <p>Wir suchen noch Unterstützung bei:</p>
+        <strong id="t1">Wir suchen noch Unterstützung bei:</strong>
 
         <ul>
           <li>
@@ -38,7 +38,7 @@ const Aboutus: React.FC = () => {
           </li>
         </ul>
 
-        <p>Kontakt</p>
+        <strong>Kontakt</strong>
         <p>
           <a href="mailto:info@repaircafe.fixit">info@repaircafe.fixit</a>
         </p>

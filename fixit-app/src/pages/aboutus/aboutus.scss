@@ -1,45 +1,48 @@
 @import '../../App';
 
+body {
+  font-size: 18px;
+}
+
 .aboutus {
-  margin-top: 100px;;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 100px 20px 40px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  line-height: 1.6;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 30px;
+  text-align: center;
+}
+
+
+.aboutus * {
+  text-align: center;
 }
 
 .aboutus h2 {
-  font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
-  color: #222;
+  color: var(--color-secondary);
 }
 
 .aboutus p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
-.aboutus ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.aboutus li {
-  margin-bottom: 0.75rem;
+#t1 {
+  padding-top: 40px;
 }
 
 .aboutus a {
-  color: #0066cc;
+  color: var(--color-secondary); /* Fallback: z. B. Blau */
   text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.3s ease;
 }
 
 .aboutus a:hover {
-  text-decoration: underline;
+  opacity: 0.8;
+  text-decoration: none;
+  color: var(--color-extra1);
 }

@@ -76,19 +76,6 @@ const FAQ: React.FC = () => {
             gemeinsam, was nötig ist.
           </p>
         </div>
-
-        <div>
-          <h3>Wie kann ich mithelfen oder selbst Reparateur werden?</h3>
-          <p>
-            Wir freuen uns über jede Unterstützung! Melde dich einfach über
-            unser <a href="#kontakt">Kontaktformular</a>.
-          </p>
-        </div>
-
-        <div>
-          <h3>Gibt es Parkplätze oder einen barrierefreien Zugang?</h3>
-          <p>[Hier standortspezifische Informationen ergänzen.]</p>
-        </div>
       </div>
     </div>
   );
