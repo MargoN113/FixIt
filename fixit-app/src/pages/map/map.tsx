@@ -6,6 +6,7 @@ import {MapContainer, TileLayer, Marker, Tooltip, ZoomControl, useMapEvents} fro
 import Header from '../../components/header/header';
 
 
+
 interface Cafe {
     id: number;
     name: string;
@@ -227,6 +228,8 @@ const Map: React.FC = () => {
             <div id="details">
                 <div className="detail-head">{detailCafe.name}</div>
                 <div className="detail-description">{detailCafe.description}</div>
+                <div className="detail-mail">{detailCafe.email}</div>
+                <a className="detail-website" href="https://tha.de" target="_blank" rel="noopener noreferrer">{detailCafe.webseiteLink}</a>
                 <div className="detail-type">{detailCafe.type}</div>
             </div>
             <div id="map-frame">
