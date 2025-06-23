@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-//Controller kriegt Anfragen von Client und schickt die Antwort zurück
+//Controller kriegt Anfragen von Client und schickt eine Antwort zurück
 @CrossOrigin(origins = "http://localhost:3000") //Anfragen von einer anderen Domäne (React Server) erlauben
 @RequestMapping("/api/cafes") //Abfragen von Front End entgegennehmen
 @RestController
