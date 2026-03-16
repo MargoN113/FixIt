@@ -1,3 +1,31 @@
+# FixIt
+
+FixIt is a sustainable web application developed by a team of five students.
+
+The platform allows users to find nearby repair cafés where people can repair items themselves. Our motto is: "Repair together, sustainably!"
+
+### Features
+- Interactive map showing cafés and their descriptions
+- Café registration
+- Search and filter cafés by type
+- FAQ and About us pages
+
+### Screenshots
+
+#### Map
+<img width="1038" height="466" alt="image" src="https://github.com/user-attachments/assets/6cc864d7-2f1d-4c0b-8181-9de72102dfa6" />
+<img width="1038" height="462" alt="image" src="https://github.com/user-attachments/assets/90c785d5-dba4-4a70-828a-f62fe878d71a" />
+
+#### Café registration
+<img width="1038" height="468" alt="image" src="https://github.com/user-attachments/assets/af40de50-7ae7-4266-b257-0bfb9f42f725" />
+
+#### About us
+<img width="1041" height="467" alt="image" src="https://github.com/user-attachments/assets/61369a5d-5762-4de9-a4c8-9b18c5a657cc" />
+
+#### FAQ
+<img width="1032" height="466" alt="image" src="https://github.com/user-attachments/assets/3c56bd2a-26fa-46b7-b175-294ecb2c4d96" />
+
+
 # Frontend: Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
